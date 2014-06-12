@@ -667,6 +667,24 @@
                 "faux +1",
                 "pic de guerre lourd +1",
                 "rasoir de combat +1",
+                "pal des épines"
+            ]
+        }, {
+            "source": "aventure 3",
+            "cards": [
+                "arc long de froid +1",
+                "dague venimeuse +2",
+                "épée longue +2",
+                "trident vicieux +1"
+            ]
+        }, {
+            "source": "aventure 4",
+            "cards": [
+                "dague tueuse de géants +1",
+                "épieu +3",
+                "gourdin de Mokmurian",
+                "hachette de froid runique +2",
+                "massue +3"
             ]
         }],
         // spells
@@ -719,6 +737,24 @@
                 "nuage toxique",
                 "toile",
             ]
+        }, {
+            "source": "aventure 3",
+            "cards": [
+                "chapardage",
+                "nuage incendiaire",
+                "scrutation",
+                "soin majeur"
+            ]
+
+        }, {
+            "source": "aventure 4",
+            "cards": [
+                "explosion empoisonnée",
+                "restauration",
+                "soin de groupe",
+                "téléportation"
+            ]
+
         }],
         // armors
         [{
@@ -748,8 +784,24 @@
             "source": "aventure 2",
             "cards": [
                 "bouclier tueur de mort vivants",
-                "armure de résistance au feu",
+                "armure de peau de résistance au feu",
                 "cuir clouté de capture de projectiles",
+                "tunique en peau de serpent"
+            ]
+        }, {
+            "source": "aventure 3",
+            "cards": [
+                "armure de cuir cloutée magique",
+                "bouclier à pointes",
+                "harnois magique"
+            ]
+        }, {
+            "source": "aventure 4",
+            "cards": [
+                "armure de renforcement mineur",
+                "bouclier réfléchissant",
+                "cotte de mailles de résistance au froid",
+                "cuirasse de résistance au feu"
             ]
         }],
         // item
@@ -796,7 +848,7 @@
             "cards": [
             	"baguette de bouclier",
                 "baguette de projectile de force",
-            	"baton de guérison mineure",
+            	"bâton de guérison mineure",
                 "médaillon de Sihédron",
                 "potion de grace",
                 "potion de robustesse",
@@ -811,6 +863,30 @@
                 "médaillon de Sihédron",
                 "pal des épines",
                 "tunique en peau de serpent",
+            ]
+        }, {
+            "source": "aventure 3",
+            "cards": [
+                "baguette d'énergie négative",
+                "baguette de rayon ardent",
+                "bandeau de belle allure",
+                "bandeau de vaste intelligence",
+                "ceinturon de dextérité du chat",
+                "ceinturon de force de géant",
+                "médaillon de Sihédron"
+            ]
+        }, {
+            "source": "aventure 4",
+            "cards": [
+                "amulette des poings ardents",
+                "bandeau de sagesse",
+                "bâton du ciel et de la terre",
+                "brassards de protection supérieure",
+                "codex d'émeraude",
+                "collier de boules de feu",
+                "longue-vue magique",
+                "pierre porte-bonheur supérieure",
+                "robe des runes"
             ]
         }],
         // ally
@@ -859,6 +935,27 @@
                 "Maester Grump",
                 "marchand",
             ]
+        }, {
+            "source": "aventure 3",
+            "cards": [
+                "blaireau géant",
+                "chat",
+                "Jakardros Sovark",
+                "rôdeur des flèches noires",
+                "singe",
+                "Vale Temros",
+                "Yap le pixie"
+            ]
+        }, {
+            "source": "aventure 4",
+            "cards": [
+                "aigle",
+                "bibliothécaire mécanique",
+                "Conna la sage",
+                "dragon rouge charmé",
+                "lézard",
+                "ours"
+            ]
         }],
         // blessings
         [{
@@ -891,6 +988,16 @@
             "cards": [
                 "bénédiction d'Abadar",
             ]
-        }],
+        }, {
+            "source": "aventure 3",
+            "cards": [
+                "bénédiction de Norgorber"
+            ]
+        }, {
+            "source": "aventure 4",
+            "cards": [
+                "bénédiction de Gozreh"
+            ]
+        }]
     ]
 };
