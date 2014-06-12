@@ -1,0 +1,126 @@
+﻿body {
+    padding-top: 70px;
+}
+
+.my-jumbotron {
+    border-radius: 6px;
+    margin-bottom: 30px;
+    color: inherit;
+    background-color: #eee;
+}
+
+    .my-jumbotron h1 {
+        padding: 78px 60px 18px 60px;
+        text-transform: capitalize;
+        margin-bottom: 0;
+        font-size: 63px;
+    }
+
+    .my-jumbotron p {
+        padding-right: 400px;
+        color: #808080;
+        font-style: italic;
+        height: 40px;
+    }
+
+    .my-jumbotron .bar {
+        padding: 10px 15px;
+        border: 4px solid #475d0d;
+        border-width: 4px 0;
+        background-color: #80a838;
+        color: #fff;
+    }
+
+        .my-jumbotron .bar ul {
+            margin-bottom: 0;
+        }
+
+        .my-jumbotron .bar .points {
+            float: right;
+        }
+
+#charactersSelector {
+    text-transform: capitalize;
+}
+
+
+    #charactersSelector .prestigeClass {
+        cursor: pointer;
+    }
+
+        #charactersSelector .prestigeClass:hover {
+            color: #000;
+        }
+
+.navbar-nav > .active {
+    color: #555;
+    background-color: #e7e7e7;
+}
+
+.jumbo-0 {
+    background: url(../img/ezren.jpg) no-repeat right bottom;
+}
+
+.jumbo-1 {
+    background: url(../img/lini.jpg) no-repeat right bottom;
+}
+
+.jumbo-2 {
+    background: url(../img/amiri.jpg) no-repeat right bottom;
+}
+
+.jumbo-3 {
+    background: url(../img/kyra.jpg) no-repeat right bottom;
+}
+
+.jumbo-4 {
+    background: url(../img/harsk.jpg) no-repeat right bottom;
+}
+
+.jumbo-5 {
+    background: url(../img/seelah.jpg) no-repeat right bottom;
+}
+
+.jumbo-6 {
+    background: url(../img/mérisiel.jpg) no-repeat right bottom;
+}
+
+.jumbo-7 {
+    background: url(../img/valeros.jpg) no-repeat right bottom;
+}
+
+.jumbo-8 {
+    background: url(../img/lem.jpg) no-repeat right bottom;
+}
+
+.jumbo-9 {
+    background: url(../img/séonie.jpg) no-repeat right bottom;
+}
+
+.jumbo-10 {
+    background: url(../img/sajan.jpg) no-repeat right bottom;
+}
+
+#tags li {
+    height: 22px;
+}
+
+#tags .prestigeClass {
+    border-radius: 3px;
+    background: #5f821f;
+}
+
+    #tags .prestigeClass > button {
+        margin-left: 2px;
+        margin-top: 1px;
+        opacity: .5;
+    }
+
+.heavy {
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.deck li li {
+    margin: 10px 0;
+}

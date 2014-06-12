@@ -1,0 +1,211 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pathfinder JcE Character Editor</title>
+    <link href="css/boot.css" rel="stylesheet" />
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/editor.css" rel="stylesheet" />
+    <link href="css/printing.css" rel="stylesheet" media="print" />
+    <script type="text/javascript">
+        if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
+            var msViewportStyle = document.createElement('style')
+            msViewportStyle.appendChild(
+              document.createTextNode(
+                '@-ms-viewport{width:auto!important}'
+              )
+            )
+            document.querySelector('head').appendChild(msViewportStyle)
+        }
+    </script>
+</head>
+<body>
+    <div id="root" class="container">
+    </div>
+    <!-- Legal stuff -->
+    <div class="container legal">
+        <p class="text-center">
+            Pour tout bug, commentaire, question ou remarque, rendez-vous sur <a href="http://www.pathfinder-fr.org/Forum/yaf_postst7678_Nouvel-editeur-de-personnages.aspx">ce sujet de discussion</a>.
+        </p>
+        <p class="text-center">
+            <a title="Site de la communauté francophone Pathfinder-fr.org" href="http://www.pathfinder-fr.org/"><img src="img/logo.jpg" alt="Logo Pathfinder-fr.org" /></a>
+        </p>
+        <p class="text-muted small">La gamme Pathfinder est une création de <a href="http://www.paizo.com/">Paizo Publishing</a> traduite en français par <a href="http://www.black-book-editions.fr/">Black Book Editions</a>.</p>
+        <p class="text-muted small">Ce site se base sur les licences <a href="http://www.pathfinder-fr.org/Wiki/OGL.ashx">Open Game License</a>, <a href="http://www.pathfinder-fr.org/Wiki/PCUP.ashx">Pathfinder Community Use Policy</a> et les conditions d'utilisation BBE.</p>
+        <p class="text-muted small">
+            This website uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy.
+            We are expressly prohibited from charging you to use or access this content.
+            This website is not published, endorsed, or specifically approved by Paizo Inc.
+            For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse.
+            For more information about Paizo Inc. and Paizo products, please visit paizo.com.
+        </p>
+    </div>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script type="text/javascript" src="js/json2.js"></script>
+    <script type="text/javascript" src="js/mustache.js"></script>
+    <script type="text/javascript" src="datasets/dataset.fr.js" charset="utf-8"></script>
+    <script type="text/javascript" src="js/trace.js" charset="utf-8"></script>
+    <script type="text/javascript" src="js/editor.js" charset="utf-8"></script>
+    <script type="text/javascript" src="js/serializer.js" charset="utf-8"></script>
+    <script type="text/javascript" src="js/character.js" charset="utf-8"></script>
+    <script type="text/html" id="characterSheet">
+        <nav id="navbar" class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#jce-navbar-collapse">
+                        <span class="sr-only">Menu</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Pathfinder JcE - Éditeur de personnages</a>
+                </div>
+                <div class="collapse navbar-collapse" id="jce-navbar-collapse">
+                    <ul class="nav navbar-nav" id="charactersSelector">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Personnage <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                {{#characters}}
+                                <li><a href="#{{link}}">{{name}}</a></li>
+                                {{/characters}}
+                            </ul>
+                        </li>
+                        {{#prestigeClasses}}
+                        <li class=""><p class="navbar-text prestigeClass" data-index="{{index}}">{{name}}</p></li>
+                        {{/prestigeClasses}}
+                    </ul>
+                    <button id="saveButton" type="button" class="btn btn-default navbar-btn navbar-right" data-toggle="modal" data-target="#linkModal">Enregistrer</button>
+                </div>
+            </div>
+        </nav>
+        <div class="modal fade" id="linkModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <p class="text-center">L'adresse unique pour votre personnage est<br /><a id="characterLink"></a></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default btn-primary" data-dismiss="modal">Fermer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="my-jumbotron jumbo-{{datas.characterIndex}}">
+            <h1>{{name}}</h1>
+            <p><!--&laquo;{{quote}}&raquo;--></p>
+            <div class="bar">
+                <div class="points"><span id="points"></span> points</div>
+                <ul id="tags" class="list-inline">
+                    {{#tags}}
+                    <li>{{.}}</li>
+                    {{/tags}}
+                    {{#prestigeClassName}}
+                    <li class="prestigeClass">{{.}}<button type="button" class="close" aria-hidden="true">&times;</button></li>
+                    {{/prestigeClassName}}
+                </ul>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading"><h2 class="panel-title">compétences</h2></div>
+            <ul class="abilities list-group">
+                {{#abilities.str}}{{> abilityRow}}{{/abilities.str}}
+                {{#abilities.dex}}{{> abilityRow}}{{/abilities.dex}}
+                {{#abilities.con}}{{> abilityRow}}{{/abilities.con}}
+                {{#abilities.int}}{{> abilityRow}}{{/abilities.int}}
+                {{#abilities.wis}}{{> abilityRow}}{{/abilities.wis}}
+                {{#abilities.cha}}{{> abilityRow}}{{/abilities.cha}}
+            </ul>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading"><h2 class="panel-title">pouvoirs</h2></div>
+            <ul class="powers list-group">
+                <li class="handSize list-group-item">
+                    <span class="col-md-3 heavy">taille de la main</span>
+                    <label class="checkbox-inline">{{handSize.base}}</label>
+                    {{#handSize.maxArray}}
+                    <label class="checkbox-inline"><input type="checkbox" class="handSize" data-value="{{.}}" />{{.}}</label>
+                    {{/handSize.maxArray}}
+                </li>
+                {{#hasProficiencies}}
+                <li class="proficiencies list-group-item">
+                    {{#proficiencies}}
+                    <label class="checkbox-inline"><input type="checkbox" class="proficiency" data-index="{{index}}" {{alwayson}} />{{text}}</label>
+                    {{/proficiencies}}
+                </li>
+                {{/hasProficiencies}}
+                {{#powers}}
+                <li class="list-group-item">{{#parsePower}}{{.}}{{/parsePower}}</li>
+                {{/powers}}
+            </ul>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading"><h2 class="panel-title">liste des cartes</h2></div>
+            <ul class="cards list-group">
+                <li class="list-group-item">type de carte de prédilection : {{#translateCardType}}{{deck.predilectionCardType}}{{/translateCardType}}</li>
+                {{#deck.weapon}}{{> cardTypeRow}}{{/deck.weapon}}
+                {{#deck.spell}}{{> cardTypeRow}}{{/deck.spell}}
+                {{#deck.armor}}{{> cardTypeRow}}{{/deck.armor}}
+                {{#deck.item}}{{> cardTypeRow}}{{/deck.item}}
+                {{#deck.ally}}{{> cardTypeRow}}{{/deck.ally}}
+                {{#deck.blessing}}{{> cardTypeRow}}{{/deck.blessing}}
+            </ul>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading"><h2 class="panel-title">deck</h2></div>
+            <ul class="deck list-group">
+                {{#datas.deck}}
+                {{#hasCards}}
+                <li class="list-group-item">
+                    <h4>{{name}}</h4>
+                    <ul class="list-unstyled">
+                        {{#cards}}
+                        <li>{{{renderDeckCardSelector}}}</li>
+                        {{/cards}}
+                    </ul>
+                </li>
+                {{/hasCards}}
+                {{/datas.deck}}
+            </ul>
+        </div>
+    </script>
+    <script type="text/html" id="abilityRow">
+        <li class="list-group-item">
+            <span class="name heavy col-md-3">{{name}}</span>
+            <span class="dice col-md-2">d{{dice}}</span>
+            {{#maxArray}}
+            <label class="checkbox-inline"><input type="checkbox" class="abilityValue" data-ability="{{index}}" data-value="{{.}}" />+{{.}}</label>
+            {{/maxArray}}
+            <ul>
+                {{#skills}}
+                <li>{{name}} : {{parentName}} +{{bonus}}</li>
+                {{/skills}}
+            </ul>
+        </li>
+    </script>
+    <script type="text/html" id="cardTypeRow">
+        <li class="list-group-item">
+            <span class="name heavy col-md-3">{{name}}</span>
+            <label class="checkbox-inline">{{base}}</label>
+            {{#array}}
+            <label class="checkbox-inline"><input type="checkbox" class="cardCount" data-cardtype="{{index}}" data-value="{{value}}" />{{value}}</label>
+            {{/array}}
+        </li>
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            editor.init();
+        });
+    </script>
+</body>
+
+</html>

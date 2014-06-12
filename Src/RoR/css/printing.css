@@ -1,0 +1,79 @@
+﻿body {
+    padding: 0;
+}
+
+body, h1, h2, h3, h4, select {
+    font-size: 12px;
+}
+
+.my-jumbotron {
+    margin: 0;
+}
+
+    .my-jumbotron h1 {
+        padding: 0;
+        margin: 0;
+        font-size: 24px;
+    }
+
+    .my-jumbotron p {
+        height: 0;
+        margin: 0;
+    }
+
+    .my-jumbotron .bar {
+        margin: 4px 0;
+        padding: 0 5px;
+        border: none;
+    }
+
+.container {
+    width: 100%;
+}
+
+.col-md-3 {
+    width: 25%;
+}
+
+.col-md-2 {
+    width: 16.6667%;
+}
+
+.panel {
+    border: none;
+}
+
+.list-group-item {
+    padding: 0;
+    border: none;
+}
+
+.panel-heading {
+    padding: 0;
+}
+
+.deck li li {
+    margin: 0;
+}
+
+.deck > li {
+    float: left;
+    padding: 2px;
+}
+
+.form-control {
+    border: none;
+    border-bottom: 1px solid #888;
+    border-radius: 0;
+    height: auto;
+    width: 100%;
+    box-shadow: none;
+    line-height: normal;
+    padding: 0;
+    transition: none;
+    font-size: 12px;
+}
+
+.legal {
+    display: none;
+}
