@@ -648,7 +648,9 @@
             ]
         }, {
             "source": "goodies",
-            "cards": []
+            "cards": [
+				"coupe-cheval +1"
+			]
         }, {
             "source": "aventure 1",
             "cards": [
@@ -686,7 +688,26 @@
                 "hachette de froid runique +2",
                 "massue +3"
             ]
-        }],
+        }, {
+            "source": "aventure 5",
+            "cards": [
+                "arbalète lourde venimeuse +2",
+                "cimeterre à deux mains dentelé",
+                "cimeterre dansant +2",
+                "corsèque enflammée +3",
+                "fronde acide +3"
+            ]
+        }, {
+            "source": "aventure 6",
+            "cards": [
+                "Chellan, épée de l'avarice",
+                "coutille enflammée de Karzoug",
+                "épée à deux mains de foudre +2",
+                "fronde de force +3",
+                "hache enflammée gelée +1",
+                "lance de froid boomerang +2"
+            ]
+		}],
         // spells
         [{
             "source": "base",
@@ -745,7 +766,6 @@
                 "scrutation",
                 "soin majeur"
             ]
-
         }, {
             "source": "aventure 4",
             "cards": [
@@ -754,7 +774,23 @@
                 "soin de groupe",
                 "téléportation"
             ]
-
+        }, {
+            "source": "aventure 5",
+            "cards": [
+                "blizzard",
+                "convocation de monstres",
+                "désintégration",
+                "rappel à la vie"
+            ]
+        }, {
+            "source": "aventure 6",
+            "cards": [
+                "dérouter",
+                "domination",
+                "invocation",
+                "symbole de colère",
+                "tempête corrosive"
+			]
         }],
         // armors
         [{
@@ -772,11 +808,13 @@
             ]
         }, {
             "source": "goodies",
-            "cards": []
+            "cards": [
+				"armure de plate gobeline +1"
+			]
         }, {
             "source": "aventure 1",
             "cards": [
-            	"bouclier de réqsistance au feu",
+            	"bouclier de résistance au feu",
             	"chemise de maille elfique",
                 "cuirasse elfique",
             ]
@@ -803,7 +841,23 @@
                 "cotte de mailles de résistance au froid",
                 "cuirasse de résistance au feu"
             ]
-        }],
+        }, {
+            "source": "aventure 5",
+            "cards": [
+                "armure de renforcement",
+                "bouclier ailé",
+                "cuirasse invincible"
+            ]
+        }, {
+            "source": "aventure 6",
+            "cards": [
+                "armure de plates en adamantium",
+                "armure de renforcement supérieur",
+                "armure démoniaque",
+                "bouclier entropique",
+                "bouclier forteresse"
+            ]
+		}],
         // item
         [{
             "source": "base",
@@ -888,7 +942,26 @@
                 "pierre porte-bonheur supérieure",
                 "robe des runes"
             ]
-        }],
+        }, {
+            "source": "aventure 5",
+            "cards": [
+                "bandeau d'intelligence épique",
+                "baguette de découverte des trésors",
+                "bâton d'Ordikon",
+                "bâton des ombres affalées",
+                "plume de révélation"
+            ]
+        }, {
+            "source": "aventure 6",
+            "cards": [
+                "anneau de résistance aux énergies",
+                "anneau de Sihédron",
+                "bottes de téléportation",
+                "ceinturon de puissance physique",
+                "robes de Xin-Shalast",
+                "tome de Sihédron"
+            ]
+		}],
         // ally
         [{
             "source": "base",
@@ -956,7 +1029,26 @@
                 "lézard",
                 "ours"
             ]
-        }],
+        }, {
+            "source": "aventure 5",
+            "cards": [
+                "chaman",
+                "mage pyromane",
+                "tireur d'élite elfique",
+                "tueur sacré",
+                "vélociraptor",
+                "zuvuzeg"
+            ]
+        }, {
+            "source": "aventure 6",
+            "cards": [
+                "Ayruzi",
+                "Gyukak",
+                "montagnard",
+                "Morgiv",
+                "Svenveka"
+            ]
+		}],
         // blessings
         [{
             "source": "base",
@@ -998,6 +1090,11 @@
             "cards": [
                 "bénédiction de Gozreh"
             ]
-        }]
+        }, {
+            "source": "aventure 6",
+            "cards": [
+                "bénédiction de Néthys"
+            ]
+		}]
     ]
 };
